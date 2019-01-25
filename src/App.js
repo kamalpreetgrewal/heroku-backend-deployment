@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
+const express = require('express');
+const app = express();
+const PostRouter = require('./routes/PostRouter');
+const AuthRouter = require('./routes/AuthRouter');
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h2>Please open Postman to test this API.</h2>
-        <p> In case of any issues with running the project, send email to Kamalpreet Grewal at
-        grewalkamal005@gmail.com.</p>
-      </div>
-    );
-  }
-}
+const PORT = 3000;
 
-export default App;
+app.use('/api', PostRouter);
+app.use('/api', AuthRouter);
+
+app.listen(PORT, () => {
+  console.log("Server is running on port: " + 3000);
+});
