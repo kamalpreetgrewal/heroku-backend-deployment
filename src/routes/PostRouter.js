@@ -3,8 +3,10 @@ const PostRouter = express.Router();
 const axios = require('axios');
 const cachios = require('cachios');
 
+// request URL
 const postUrl = 'https://hatchways.io/api/assessment/blog/posts?tag=';
 
+// ping api to see if it is working
 PostRouter.get('/ping', (req, res) => {
 	res.status(200).json({success: true});
 });
@@ -57,7 +59,7 @@ PostRouter.get('/posts', async (req, res) => {
 	res.send({"posts":results});
 });
 
-// 
+// filter posts based on attribute to remove any duplicates
 function unique(array, propertyName) {
 	return array.filter((e, i) =>
 		array.findIndex(a => a[propertyName] === e[propertyName]) === i);
