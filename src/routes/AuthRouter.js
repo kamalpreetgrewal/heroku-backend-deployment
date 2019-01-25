@@ -40,7 +40,7 @@ AuthRouter.get('/authors', async (req, res) => {
     				return temp;
     			}, []);
 			// unique tags
-			tempTags = Array.from(new Set([].concat(...tempTgs)));
+			tempTags = Array.from(new Set([].concat(...tempTags)));
 
 			// set up response object for each author
     		let authorObj = {
