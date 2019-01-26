@@ -56,7 +56,10 @@ PostRouter.get('/posts', async (req, res) => {
 	}
 	
 	// Send processed results
-	res.send({"posts":results});
+	if (results.length === 0) {
+		res.send({error: "No posts available for this tag"});
+	}
+	res.send({posts: results});
 });
 
 // filter posts based on attribute to remove any duplicates
