@@ -51,7 +51,7 @@ AuthRouter.get('/authors', async (req, res) => {
     			posts: tempPosts,
     			tags: tempTags,
     			totalLikeCount: tempPosts.reduce((total, post) => post.likes + total, 0),
-    			totalReadCount: tempTags.reduce((total, post) => post.reads + total, 0)
+    			totalReadCount: tempPosts.reduce((total, post) => post.reads + total, 0)
     		};
     		combinedRes.push(authorObj);
     	}
